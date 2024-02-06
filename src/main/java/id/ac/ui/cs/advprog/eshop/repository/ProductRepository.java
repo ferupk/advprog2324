@@ -19,6 +19,12 @@ public class ProductRepository {
         return product;
     }
 
+    public void edit(String targetId, Product editValues) {
+        Product product = findById(targetId);
+        product.setProductName(editValues.getProductName());
+        product.setProductQuantity(editValues.getProductQuantity());
+    }
+
     public Iterator<Product> findAll() {
         return productData.iterator();
     }
