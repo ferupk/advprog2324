@@ -22,4 +22,15 @@ public class ProductRepository {
     public Iterator<Product> findAll() {
         return productData.iterator();
     }
+
+    public Product findById(String targetId) {
+        for (Product product : productData) {
+            String productId = product.getProductId();
+            if (productId.equals(targetId)) {
+                return product;
+            }
+        }
+
+        return null;
+    }
 }
