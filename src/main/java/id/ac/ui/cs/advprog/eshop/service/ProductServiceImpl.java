@@ -22,6 +22,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public void edit(String targetId, Product editValues) {
+        productRepository.edit(targetId, editValues);
+    }
+
+    @Override
     public void delete(String targetId) {
         productRepository.delete(targetId);
     }
