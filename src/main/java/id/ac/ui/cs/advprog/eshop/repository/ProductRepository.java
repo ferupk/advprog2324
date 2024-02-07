@@ -13,8 +13,10 @@ public class ProductRepository {
     private List<Product> productData = new ArrayList<>();
 
     public Product create(Product product) {
-        String productId = UUID.randomUUID().toString();
-        product.setProductId(productId);
+        if (product.getProductId() == null) {
+            String productId = UUID.randomUUID().toString();
+            product.setProductId(productId);
+        }
         productData.add(product);
         return product;
     }
