@@ -1,0 +1,12 @@
+workflow:
+  name: Continuous Integration (CI)
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "merge_request_event"
+
+stages:
+  - test
+
+run-tests:
+  stage: test
+  script:
+    - ./gradlew test
