@@ -9,4 +9,5 @@ stages:
 run-tests:
   stage: test
   script:
+    - chmod +x ./gradlew
     - ./gradlew test
