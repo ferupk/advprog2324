@@ -8,7 +8,7 @@ plugins {
 
 sonarqube {
 	properties {
-		property("sonar.projectKey", "advprog2324-tutorial")
+		property("sonar.projectKey", "ferupk_advprog2324-tutorial")
 		property("sonar.organization", "ferupk")
 	}
 }
