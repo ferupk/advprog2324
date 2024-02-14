@@ -3,6 +3,14 @@ plugins {
 	jacoco
 	id("org.springframework.boot") version "3.2.2"
 	id("io.spring.dependency-management") version "1.1.4"
+	id ("org.sonarqube") version "3.4.0.2513"
+}
+
+sonarqube {
+	properties {
+		property("sonar.projectKey", "advprog2324-tutorial")
+		property("sonar.organization", "ferupk")
+	}
 }
 
 group = "id.ac.ui.cs.advprog"
