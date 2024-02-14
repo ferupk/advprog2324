@@ -22,7 +22,7 @@ sonarcloud-check:
   script:
     - chmod +x ./gradlew
     - ./gradlew compileJava
-    - ./gradlew sonar
+    - ./gradlew build sonar --info
 
 run-scorecard:
   stage: test
