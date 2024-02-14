@@ -19,7 +19,10 @@ sonarcloud-check:
     key: "${CI_JOB_NAME}"
     paths:
       - .sonar/cache
-  script: gradle sonarqube
+  script:
+    - chmod +x ./gradlew
+    - ./gradlew compileJava
+    - ./gradlew sonar
 
 run-scorecard:
   stage: test
