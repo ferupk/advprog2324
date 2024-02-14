@@ -1,0 +1,26 @@
+workflow:
+  name: Continuous Integration (CI)
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "merge_request_event"
+
+stages:
+  - test
+
+run-scorecard:
+  stage: test
+  services:
+    - docker:dind
+  image:
+    name: docker:dind
+  script:
+    - echo 'Running scorecard'
+    - docker run -e SCORECARD_EXPERIMENTAL=1 -e GITLAB_AUTH_TOKEN=$GITLAB_AUTH_TOKEN gcr.io/openssf/scorecard:stable --repo $CI_PROJECT_URL
+
+run-tests:
+  stage: test
+  image: eclipse-temurin:21
+  before_script:
+    - export GRADLE_USER_HOME=`pwd`/.gradle
+  script:
+    - chmod +x ./gradlew
+    - ./gradlew test
