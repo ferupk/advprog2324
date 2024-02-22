@@ -1,0 +1,25 @@
+name: Koyeb deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install and configure the Koyeb CLI
+        uses: koyeb-community/install-koyeb-cli@v2
+        with:
+          api_token: "${{ secrets.KOYEB_API_TOKEN}}"
+
+      - name: Build and deploy the application
+        uses: koyeb/action-git-deploy@v1
+        with:
+          app-name: advprog2324-ferupk
+          git-builder: docker
+          git-docker-dockerfile: Dockerfile
+          service-ports: "8080:http"
+          service-routes: "/:8080"
+          skip-cache: true
