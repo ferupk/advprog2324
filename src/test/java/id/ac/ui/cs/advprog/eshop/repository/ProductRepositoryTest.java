@@ -114,10 +114,11 @@ class ProductRepositoryTest {
         product.setProductQuantity(100);
         productRepository.create(product);
 
-        Product editDetails = new Product();
-        editDetails.setProductName("Sampo Cap Bimo");
-        editDetails.setProductQuantity(50);
-        productRepository.edit(product.getProductId(), editDetails);
+        Product editedProduct = new Product();
+        editedProduct.setProductId(product.getProductId());
+        editedProduct.setProductName("Sampo Cap Bimo");
+        editedProduct.setProductQuantity(50);
+        productRepository.edit(product.getProductId(), editedProduct);
 
         Iterator<Product> productIterator = productRepository.findAll();
         assertTrue(productIterator.hasNext());

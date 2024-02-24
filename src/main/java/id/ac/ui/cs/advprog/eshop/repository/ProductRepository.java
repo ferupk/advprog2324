@@ -21,10 +21,14 @@ public class ProductRepository {
         return product;
     }
 
-    public void edit(String targetId, Product editValues) {
-        Product product = findById(targetId);
-        product.setProductName(editValues.getProductName());
-        product.setProductQuantity(editValues.getProductQuantity());
+    public void edit(String targetId, Product editedProduct) {
+        for (int i = 0; i < productData.size(); i++) {
+            Product product = productData.get(i);
+            if (product.getProductId().equals(targetId)) {
+                productData.remove(product);
+                productData.add(i, editedProduct);
+            }
+        }
     }
 
     public void delete(String targetId) {
