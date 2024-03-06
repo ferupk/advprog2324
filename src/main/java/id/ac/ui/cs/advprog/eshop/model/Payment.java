@@ -1,9 +1,9 @@
 package id.ac.ui.cs.advprog.eshop.model;
 
+import id.ac.ui.cs.advprog.eshop.enums.PaymentMethod;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
 import lombok.Getter;
-import lombok.Setter;
 
-import java.util.Arrays;
 import java.util.Map;
 
 @Getter
@@ -17,14 +17,13 @@ public class Payment {
         this.id = id;
         this.paymentData = paymentData;
 
-        String[] methodList = {"Voucher Code", "Cash On Delivery"};
-        if (Arrays.stream(methodList).noneMatch(item -> (item.equals(method)))) {
-            throw new IllegalArgumentException();
-        } else {
+        if (PaymentMethod.contains(method)) {
             this.method = method;
+        } else {
+            throw new IllegalArgumentException();
         }
 
-        if (this.method.equals("Voucher Code")) {
+        if (this.method.equals(PaymentMethod.VOUCHER_CODE.getValue())) {
             this.status = isVoucherDataValid() ? "SUCCESS" : "REJECTED";
         } else {
             this.status = isCashOnDeliveryDataValid() ? "SUCCESS" : "REJECTED";
@@ -32,11 +31,10 @@ public class Payment {
     }
 
     public void setStatus(String status) {
-        String[] statusList = {"SUCCESS", "REJECTED"};
-        if (Arrays.stream(statusList).noneMatch(item -> (item.equals(status)))) {
-            throw new IllegalArgumentException();
-        } else {
+        if (PaymentStatus.contains(status)) {
             this.status = status;
+        } else {
+            throw new IllegalArgumentException();
         }
     }
 
