@@ -169,3 +169,42 @@ Deployed App Link: https://advprog2324-ferupk.koyeb.app/
      section must also be modified. An example would be the implementation of object editing before applying SOLID
      principles. The past implementation is highly dependent on an objects set of attributes, and any change in that set
      would necessitate change in the editing implementation as well.
+
+# Module 03: Maintainability & OO Principles
+
+Feru Pratama Kartajaya<br>
+2106750351
+
+Deployed App Link: https://advprog2324-ferupk.koyeb.app/
+
+## Reflection
+
+```
+1. Reflect based on Percival (2017) proposed self-reflective questions (in “Principles and Best Practice of Testing”
+submodule, chapter “Evaluating Your Testing Objectives”), whether this TDD flow is useful enough for you or not. If not,
+explain things that you need to do next time you make more tests.
+2. You have created unit tests in Tutorial. Now reflect whether your tests have successfully followed F.I.R.S.T.
+principle or not. If not, explain things that you need to do the next time you create more tests.
+```
+
+1. I found the implementation of TDD to be overall useful in code development. As this is my first time properly using
+   the workflow, I found creating test suites before implementing something to be a lot harder and more time-consuming
+   than usual. However, I feel like it pushed me to really think about what needs to be implemented and all the things
+   necessary for an implementation of code to be verifiably correct. It helped with figuring out all the cases that
+   might happen when my code is run and used by a user. With the help of readily-available test suites, I can start to
+   feel confident on the quality and correctness of my code.
+   <br>
+   In terms of Percival's self-reflective questions, I feel like I've satisfied a lot of criterias. For example, I feel
+   like the test suites I've designed have tested all edge cases thoroughly. The test suites also have a great code and
+   branch coverage, covering all of the Order and Payment classes with the exception of Payment model class at 92%
+   branch coverage. However, there are a lot of aspects that I still find lacking. I currently have not implemented any
+   large-scale integration tests, so I cannot be 100% sure if all components fit together cleanly and properly. I also
+   feel like I can get a little more confidence in refactoring through future tests that I make.
+
+2. I believe that my current tests have implemented the F.I.R.S.T principle. My explanation is as follows:
+   - Fast: From the runs that I have done, the tests can be run in mere seconds. I find this time to be satisfactory.
+   - Isolated: No test case is dependent on any other.
+   - Repeatable: The tests have been repeatedly run and can produce the same results every time.
+   - Self-Validating: The tests utilize strict assertions with the help of JUnits Assertions API.
+   - Thorough: My tests are extensive and try to cover every possibility, split into happy and unhappy cases. The number
+     of tests are also minimal to keep testing Fast.
