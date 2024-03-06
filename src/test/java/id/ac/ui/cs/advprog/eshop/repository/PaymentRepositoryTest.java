@@ -26,7 +26,7 @@ public class PaymentRepositoryTest {
         payments.add(payment1);
 
         Map<String, String> paymentData2 = new HashMap<>();
-        paymentData1.put("voucherCode", "ESHOPSAMPLE60253");
+        paymentData2.put("voucherCode", "ESHOPSAMPLE60253");
         Payment payment2 = new Payment("652248b6-b8ad-4dfe-95d8-c9417b71fd4e",
                 PaymentMethod.VOUCHER_CODE.getValue(), paymentData2);
         payments.add(payment2);
